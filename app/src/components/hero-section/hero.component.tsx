@@ -28,9 +28,7 @@ export const Hero = () => {
         };
     }, []);
 
-    const getStarted = () => {
-        console.log('Get started;');
-    };
+
 
     const background = isLargeScreen ? circles : balls
 
@@ -48,7 +46,6 @@ export const Hero = () => {
                 <div className="hero-homepage__card__button">
                     <Button
                         buttonType="inverted"
-                        onClick={getStarted}
                         style={{ fontSize: 17 }}>
                         <Link
                             activeClass="active"
