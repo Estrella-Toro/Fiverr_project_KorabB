@@ -81,7 +81,7 @@ export const MembershipsContainer = () => {
     }, []);
     return (
         <div className='memberships-container'>
-            <h1 className="memberships-container__title">Choose your membership plan</h1>
+            <h1 className="memberships-container__title">Memberships</h1>
             {isLargeScreen
                 ? <div className="memberships-container__tiers">
                     {subscriptions.map((subscription, index) => {
