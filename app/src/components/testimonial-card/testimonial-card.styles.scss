@@ -19,6 +19,15 @@
         gap: 20px;
         padding: 25px;
 
+        &__image {
+            width: 60px;
+            height: 60px;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
         &__title-name {
             font-size: 22px;
             line-height: 1.5rem;

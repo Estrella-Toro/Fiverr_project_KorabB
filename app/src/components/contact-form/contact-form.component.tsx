@@ -5,16 +5,7 @@ import { useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { addDoc, collection, onSnapshot, getFirestore } from 'firebase/firestore'
 import './contact-form.style.scss'
-
-const firebaseConfig = {
-    apiKEy: import.meta.env.VITE_API_KEY,
-    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_APP_ID,
-    measurementId: import.meta.env.VITE_MEASURMENT_ID,
-};
+import { firebaseConfig } from "../../application-data/firebase-config";
 
 const contactInfo = {
     name: '',
@@ -43,7 +34,7 @@ type Props = {
 }
 
 
-export const ContactForm = ({ setIsContactActive }: Props) => {
+export const ContactForm = () => {
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
@@ -103,7 +94,6 @@ export const ContactForm = ({ setIsContactActive }: Props) => {
         alert('Message received will contact you as soon as possible!!!')
 
         clearFormFields();
-        setIsContactActive(false);
     }
 
     return (
@@ -118,7 +108,7 @@ export const ContactForm = ({ setIsContactActive }: Props) => {
             >
                 <input type="hidden" name="form-name" value='contact-form' />
                 <FormInputField
-                    label='First and Familiy Names '
+                    label='Full Name:'
                     type='text'
                     name='name'
                     autoComplete='off'
@@ -136,7 +126,7 @@ export const ContactForm = ({ setIsContactActive }: Props) => {
                 /> */}
 
                 <FormInputField
-                    label='Phone number:'
+                    label='Phone Number:'
                     type='text'
                     name='phonenumber'
                     autoComplete='off'
@@ -145,7 +135,7 @@ export const ContactForm = ({ setIsContactActive }: Props) => {
                 />
 
                 <FormInputField
-                    label='Email'
+                    label='Email:'
                     type='email'
                     name='email'
                     autoComplete='off'

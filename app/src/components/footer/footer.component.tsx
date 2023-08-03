@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import './footer.styles.scss'
 import background from '../../assets/testimonialsCircles.svg';
-import { AiOutlineInstagram, AiOutlineMail } from 'react-icons/ai';
-import { FaSquareFacebook, FaSquareYoutube } from 'react-icons/fa6';
-import { BsTelephone, BsTelegram } from 'react-icons/bs';
+// import { AiOutlineInstagram, AiOutlineMail } from 'react-icons/ai';
+import { FaSquareFacebook } from 'react-icons/fa6';
+// import { BsTelephone } from 'react-icons/bs';
+import phoneIcon from '../../assets/icon-phone.png'
+import instagramIcon from '../../assets/icon-instageam.png'
+import mailIcon from '../../assets/icon-mail.png'
+
 import { TestimonialCard } from '../testimonial-card/testimonial-card.component';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { ContactForm } from '../../components/contact-form/contact-form.component'
-
-type Props = {
-    isContactActive: boolean,
-    setIsContactActive: (newValue: boolean) => void;
-}
+import { testimonials } from '../../application-data/testimonials-data'
 
 
-export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
+export const Footer = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
 
     useEffect(() => {
@@ -34,31 +34,43 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
         };
     }, []);
     return (
-        <div className='footer'>
-
+        <div id='contact' className='footer'>
             <div className="footer__contact" style={{
                 backgroundImage: `url(${background})`,
                 backgroundRepeat: `no-repeat`,
-                // backgroundColor: `#cccccc`
             }} >
                 <h1 className="footer__contact__testimonials-title">
                     Testimonials
                 </h1>
                 <div className="footer__contact__testimonials">
-                    <TestimonialCard />
-                    <TestimonialCard />
-                    <TestimonialCard />
+                    {testimonials.map((card, index) => {
+                        return <TestimonialCard key={index} card={card} />
+                    })}
                 </div>
-                {isContactActive && <ContactForm isContactActive={isContactActive} setIsContactActive={setIsContactActive} />}
+                <div id="contact-form__anchortag"></div>
+                <ContactForm />
                 <div className="footer__contact-text">
                     <h1>Contact</h1>
                     <p>Get in touch with me</p>
                 </div>
                 <div className="footer__contact-separator"></div>
                 <div className="footer__contact-details">
-                    <div className='footer__contact-details__span'><AiOutlineInstagram /> <span>Instagram link</span></div>
-                    <div className='footer__contact-details__span'><BsTelephone /> <span>+32 123 456 789</span></div>
-                    <div className='footer__contact-details__span'><AiOutlineMail /> <span>some.test.email@gmail.comk</span></div>
+                    <div className='footer__contact-details__span'>
+                        <a href="https://www.instagram.com/sohil.elyas/">
+                            <img src={instagramIcon} alt="instagram icon" />
+                            <span>sohil.elyas</span>
+                        </a>
+                    </div>
+                    <div className='footer__contact-details__span'>
+                        <img src={phoneIcon} alt="phone icon" />
+                        <span>+32 479 89 97 66</span>
+                    </div>
+                    <div className='footer__contact-details__span'>
+                        <a href="#contact-form__anchortag">
+                            <img src={mailIcon} alt="email icon" />
+                            <span>sohil.elyasv@gmail.com</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div className="footer__block">
@@ -69,12 +81,11 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
                         ? <p>Transform your body and unlock your fitness potential with personalized training programs, expert guidance, and unwavering support from Sohil, your trusted personal trainer.</p>
                         : <p>Transform your body and unlock your fitness potential</p>
                     }
-
                     <div className="footer__block__quote__icons">
-                        <a href="#"><AiOutlineInstagram /></a>
-                        <a href="#"><FaSquareFacebook /></a>
-                        <a href="#"><BsTelegram /></a>
-                        <a href="#"><FaSquareYoutube /></a>
+                        <a href="https://www.instagram.com/sohil.elyas/"><img src={instagramIcon} alt="" /></a>
+                        <a href=" https://www.facebook.com/sohil.khazael/"><FaSquareFacebook /></a>
+                        {/* <a href="#"><BsTelegram /></a> */}
+                        {/* <a href="#"><FaSquareYoutube /></a> */}
                     </div>
                 </div>
                 <div className="footer__block__links">
@@ -90,7 +101,6 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
                                     delay={0}
                                     smooth={'linear'}
                                     duration={800}
-                                    onClick={() => setIsContactActive(false)}
                                 >
                                     About me
                                 </Link>
@@ -106,7 +116,6 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
                                     delay={0}
                                     smooth={'linear'}
                                     duration={600}
-                                    onClick={() => setIsContactActive(false)}
                                 >
                                     Membership
                                 </Link>
@@ -122,7 +131,6 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
                                     delay={0}
                                     smooth={'linear'}
                                     duration={400}
-                                    onClick={() => setIsContactActive(false)}
 
                                 >
                                     Testimonials
@@ -139,7 +147,6 @@ export const Footer = ({ isContactActive, setIsContactActive }: Props) => {
                                     delay={0}
                                     smooth={'linear'}
                                     duration={200}
-                                    onClick={() => setIsContactActive(true)}
                                 >
                                     Contact
                                 </Link>

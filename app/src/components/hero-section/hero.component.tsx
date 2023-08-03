@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../button/button.component';
-import circles from '../../assets/MiddleBalls.svg';
-// import hero from '../../assets/Hero-homepage-2.png';
-import hero from '../../assets/HomepageFinalEditSM.png';
-import balls from '../../assets/Balls.png';
+// import circles from '../../assets/MiddleBalls.svg';
+// import hero from '../../assets/HomepageFinalEditSM.png';
+// import balls from '../../assets/Balls.png';
 import './hero.styles.scss';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
+type Props = {
+    ballsImageUrl: string,
+    circlesImageUrl: string,
+    heroImageUrl: string
+}
 
-export const Hero = () => {
+export const Hero = ({ ballsImageUrl, circlesImageUrl, heroImageUrl }: Props) => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
 
     useEffect(() => {
+
         const handleResize = () => {
             setIsLargeScreen(window.innerWidth >= 720);
         };
@@ -28,46 +33,44 @@ export const Hero = () => {
         };
     }, []);
 
-    const getStarted = () => {
-        console.log('Get started;');
-    };
-
-    const background = isLargeScreen ? circles : balls
+    const background = isLargeScreen ? circlesImageUrl : ballsImageUrl
 
     return (
-        <div className="hero-homepage"
-            style={{
-                backgroundImage: `url(${background})`,
-                backgroundRepeat: `no-repeat`,
-            }}>
-            <div className="hero-homepage__card">
-                <h2 className="hero-homepage__card__title">GET FIT</h2>
+        <>
+            {background && <div className="hero-homepage" id='hero-homepage'
+                style={{
+                    backgroundImage: `url(${background})`,
+                    backgroundRepeat: `no-repeat`,
+                }}>
+                <div className="hero-homepage__card">
+                    <h2 className="hero-homepage__card__title">GET FIT</h2>
 
-                <p className="hero-homepage__card__text">Unleash your potential. Start your fitness journey with me now.</p>
+                    <p className="hero-homepage__card__text">Unleash your potential. Start your fitness journey with me now.</p>
 
-                <div className="hero-homepage__card__button">
-                    <Button
-                        buttonType="inverted"
-                        onClick={getStarted}
-                        style={{ fontSize: 17 }}>
-                        <Link
-                            activeClass="active"
-                            to={'memberships-container'}
-                            spy={false}
-                            smooth={true}
-                            offset={120}
-                            duration={800}
-                        // onClick={() => setIsContactActive(true)}
-                        >
-                            Get started
-                        </Link>
-                    </Button>
+                    <div className="hero-homepage__card__button">
+                        <Button
+                            buttonType="inverted"
+                            style={{ fontSize: 17 }}>
+                            <Link
+                                activeClass="active"
+                                to={'memberships-container'}
+                                spy={false}
+                                smooth={true}
+                                offset={120}
+                                duration={800}
+                            // onClick={() => setIsContactActive(true)}
+                            >
+                                Get started
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+
+                <div className="hero-homepage__image">
+                    {heroImageUrl && <img src={heroImageUrl} alt="" />}
                 </div>
             </div>
-
-            <div className="hero-homepage__image">
-                <img src={hero} alt="" />
-            </div>
-        </div>
+            }
+        </>
     );
 };

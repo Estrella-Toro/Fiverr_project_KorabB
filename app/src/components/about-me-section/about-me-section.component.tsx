@@ -3,31 +3,18 @@ import './about-me-section.styles.scss'
 import { useEffect, useState } from 'react';
 // import heroRight from '../../assets/HeroRight.png'
 // import heroRightMobile from '../../assets/HeroRightmobile.png'
-import heroRight from '../../assets/AboutMFinalEditSM.png'
+// import heroRight from '../../assets/AboutMFinalEditSM.png'
 import heroRightMobile from '../../assets/AboutMFinalEditSM.png'
 import { AboutMeSlider } from '../about-me-slider/about-me-slider.component';
-const infoCards = [
-    {
-        title: 'Experience',
-        content: 'Over 6 years of hands-on experience in the fitness and bodywork industry.'
-    },
-    {
-        title: 'Style',
-        content: 'Unique and innovative techniques that stimulate your neurological side.',
-    },
-    {
-        title: 'Nutrition',
-        content: 'Help increase bioavailability in your food and help establish a relationship with your food.',
-    },
-    {
-        title: 'About me',
-        content: 'Outgoing and always passionate about the things I love.',
-    },
-]
+import { infoCards } from '../../application-data/about-me-data';
 
-export const AboutMeSection = () => {
+type Props = {
+    aboutMeImageUrl: string;
+}
+
+export const AboutMeSection = ({ aboutMeImageUrl }: Props) => {
     const [isLargeScreen, setIsLargeScreen] = useState(false);
-    const backgroundImage = window.innerWidth >= 960 ? heroRight : heroRightMobile;
+
 
 
     useEffect(() => {
@@ -49,7 +36,7 @@ export const AboutMeSection = () => {
     return (
         <div className='about-me-section'
             style={{
-                backgroundImage: `url(${backgroundImage})`,
+                backgroundImage: `url(${aboutMeImageUrl})`,
                 backgroundRepeat: `no-repeat`,
             }}>
             <div>

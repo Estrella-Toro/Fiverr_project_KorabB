@@ -3,26 +3,9 @@ import './about-me-card.styles.scss'
 import buttonArrow from '../../assets/buttonArrow.svg'
 import { InfoCard } from '../info-card/info-card.component'
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { infoCards } from '../../application-data/about-me-data'
 
 
-const infoCards = [
-    {
-        title: 'Experience',
-        content: 'Over 6 years of hands-on experience in the fitness and bodywork industry.'
-    },
-    {
-        title: 'Style',
-        content: 'Unique and innovative techniques that stimulate your neurological side.',
-    },
-    {
-        title: 'Nutrition',
-        content: 'Help increase bioavailability in your food and help establish a relationship with your food.',
-    },
-    {
-        title: 'About me',
-        content: 'Outgoing and always passionate about the things I love.',
-    },
-]
 
 export const AboutMeCard = () => {
     return (

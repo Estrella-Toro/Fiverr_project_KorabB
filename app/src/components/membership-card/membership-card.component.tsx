@@ -8,20 +8,21 @@ type Props = {
     subscription: {
         type: string,
         price: number,
+        per: string,
         options: string[],
     }
 }
 
 export const MembershipCard = ({ subscription }: Props) => {
 
-    const { type, price, options } = subscription;
+    const { type, per, price, options } = subscription;
     const getStarted = () => console.log('Get started!')
     return (
         <div className='membership-card'>
             <h1 className="membership-card__title">{type}</h1>
             <div className="membership-card__price-block">
                 <h1>€{price}</h1>
-                <p>per month</p>
+                <p>{per}</p>
             </div>
             <div className="membership-card__description-block">
                 {options.map((option, index) => {

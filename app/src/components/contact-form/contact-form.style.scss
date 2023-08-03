@@ -40,6 +40,10 @@ $color-primary-2: $color-dim-gray;
 @media only screen and (min-width: 781px) {
     .contact-form-container {
         width: 100%;
+
+        h2 {
+            font-size: 45px;
+        }
     }
 
     .form-error-message {
