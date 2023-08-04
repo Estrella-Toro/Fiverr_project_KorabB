@@ -92,65 +92,57 @@ export const Footer = () => {
                     <h1>XSOFIT</h1>
                     <ul>
                         <li>
-                            <a href="">
-                                <Link
-                                    activeClass="active"
-                                    to={'about-me-section'}
-                                    spy={false}
-                                    // smooth={true}
-                                    delay={0}
-                                    smooth={'linear'}
-                                    duration={800}
-                                >
-                                    About me
-                                </Link>
-                            </a>
+                            <Link
+                                activeClass="active"
+                                to={'about-me-section'}
+                                spy={false}
+                                // smooth={true}
+                                delay={0}
+                                smooth={'linear'}
+                                duration={800}
+                            >
+                                About me
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
-                                <Link
-                                    activeClass="active"
-                                    to={'memberships-container'}
-                                    spy={false}
-                                    // smooth={true}
-                                    delay={0}
-                                    smooth={'linear'}
-                                    duration={600}
-                                >
-                                    Membership
-                                </Link>
-                            </a>
+                            <Link
+                                activeClass="active"
+                                to={'memberships-container'}
+                                spy={false}
+                                // smooth={true}
+                                delay={0}
+                                smooth={'linear'}
+                                duration={600}
+                            >
+                                Membership
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
-                                <Link
-                                    activeClass="active"
-                                    to={'footer__contact__testimonials-title'}
-                                    spy={false}
-                                    // smooth={true}
-                                    delay={0}
-                                    smooth={'linear'}
-                                    duration={400}
+                            <Link
+                                activeClass="active"
+                                to={'footer__contact__testimonials-title'}
+                                spy={false}
+                                // smooth={true}
+                                delay={0}
+                                smooth={'linear'}
+                                duration={400}
 
-                                >
-                                    Testimonials
-                                </Link>
-                            </a>
+                            >
+                                Testimonials
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
-                                <Link
-                                    activeClass="active"
-                                    to={'footer__contact-text'}
-                                    spy={false}
-                                    // smooth={true}
-                                    delay={0}
-                                    smooth={'linear'}
-                                    duration={200}
-                                >
-                                    Contact
-                                </Link>
-                            </a>
+                            <Link
+                                activeClass="active"
+                                to={'footer__contact-text'}
+                                spy={false}
+                                // smooth={true}
+                                delay={0}
+                                smooth={'linear'}
+                                duration={200}
+                            >
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                 </div>
