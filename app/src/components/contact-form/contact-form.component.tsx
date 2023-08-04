@@ -9,10 +9,12 @@ import { firebaseConfig } from "../../application-data/firebase-config";
 
 const contactInfo = {
     name: '',
-    company: '',
+    // company: '',
     phonenumber: '',
     email: '',
-    message: ''
+    message: '',
+    time_stamp: 0,
+    created: '',
 }
 interface FieldsRegex {
     [key: string]: RegExp;
@@ -26,11 +28,6 @@ const fieldsRegex: FieldsRegex = {
     message: /^[\s\S]{0,400}$/,
     fullPhoneNumber: /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/,
     fullEmailAddress: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-}
-
-type Props = {
-    isContactActive?: boolean,
-    setIsContactActive: (newValue: boolean) => void;
 }
 
 
@@ -64,8 +61,7 @@ export const ContactForm = () => {
         });
     }
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handleSubmit = async () => {
 
         const { name, email, message, phonenumber } = formValues;
 
@@ -84,14 +80,13 @@ export const ContactForm = () => {
             setErrorMessage('Not a correct phone number!');
             return
         }
-
-        const emailRef = collection(db, 'emails');
-        addDoc(emailRef, { ...formValues });
-        onSnapshot(emailRef, snapshot => {
+        const created = new Date();
+        const time_stamp = created.getTime();
+        const emailRef = collection(db, 'Contact_messages');
+        await addDoc(emailRef, { ...formValues, created, time_stamp }).then(onSnapshot(emailRef, snapshot => {
             const emails = snapshot.docs.map(email => email.data());
-            const uiList = emails.map((email, index) => console.log(`index: ${index} email: ${email} `));
-        })
-        alert('Message received will contact you as soon as possible!!!')
+        }))
+        alert('Thank you for the contact! Message received. I will contact you back as soon as possible')
 
         clearFormFields();
     }
@@ -99,14 +94,8 @@ export const ContactForm = () => {
     return (
         <div id='contact-form-container' className="contact-form-container">
             <h2>Contact me: </h2>
-            {/* <p>ако имате въпрос относно някой от нашите продукти или имате нужда от съдействие в Нидерландия за закупуване на земеделска техника</p> */}
-            <form
-                name='contact-form'
-                method='post'
-                data-netlify='true'
-                onSubmit={(e) => { return handleSubmit(e) }}
-            >
-                <input type="hidden" name="form-name" value='contact-form' />
+            <div>
+                {/* <input type="hidden" name="form-name" value='contact-form' /> */}
                 <FormInputField
                     label='Full Name:'
                     type='text'
@@ -154,10 +143,10 @@ export const ContactForm = () => {
                 />
 
                 <div className="contact-form-container__buttons-container">
-                    <Button type='submit'>Send</Button>
+                    <Button onClick={() => handleSubmit()}>Send</Button>
                 </div>
                 {!isFormValid && <div className="form-error-message">{errorMessage}</div>}
-            </form>
+            </div>
         </div>
     )
 }
