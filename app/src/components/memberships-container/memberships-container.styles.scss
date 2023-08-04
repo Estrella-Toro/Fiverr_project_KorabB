@@ -72,18 +72,15 @@
 }
 
 .slick-prev {
-    top: 203px;
+    top: 203px !important;
     left: -30px !important;
     width: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .slick-next {
+    top: 205px !important;
     left: 258px !important;
     width: 30px;
-    margin: 0;
-    padding: 0;
 }
 
 .slick-next:before,

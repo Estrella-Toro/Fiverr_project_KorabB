@@ -1,4 +1,6 @@
 import { MembershipCard } from '../membership-card/membership-card.component'
+import SlickNextArrow from '../../custom-slick-arrows-components/SlickNextArrow';
+import SlickPreviousArrow from '../../custom-slick-arrows-components/SlickPreviousArrow';
 import './memberships-container.styles.scss'
 
 import { useEffect, useState } from 'react';
@@ -7,8 +9,6 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import rightArrow from '../../assets/rightArrow.svg'
-import leftArrow from '../../assets/leftArrow.svg'
 import { subscriptions } from '../../application-data/subscriptions-data';
 
 export const MembershipsContainer = () => {
@@ -20,18 +20,8 @@ export const MembershipsContainer = () => {
         slidesToScroll: 1,
         autoplay: false,
         arrows: true,
-        nextArrow: (
-            <div>
-                {/* <div className="next-slick-arrow"> ⫸ </div> */}
-                <div className="next-slick-arrow"> <img src={leftArrow} alt="" /> </div>
-            </div>
-        ),
-        prevArrow: (
-            <div>
-                {/* <div className="prev-slick-arrow"> ⫷ </div> */}
-                <div className="prev-slick-arrow"> <img src={rightArrow} alt="" /> </div>
-            </div>
-        ),
+        nextArrow: <SlickNextArrow />,
+        prevArrow: <SlickPreviousArrow />,
         // autoplaySpeed: 1000,
     };
 
@@ -61,8 +51,8 @@ export const MembershipsContainer = () => {
             {isLargeScreen
                 ? <div className="memberships-container__tiers">
                     {subscriptions.map((subscription, index) => {
-                        return (<div key={index * 11}>
-                            <MembershipCard key={index} subscription={subscription} />
+                        return (<div key={index}>
+                            <MembershipCard subscription={subscription} />
                         </div>)
                     }
                     )}
@@ -72,8 +62,8 @@ export const MembershipsContainer = () => {
                         <Slider {...settings}>
                             {subscriptions.map((subscription, index) => {
                                 return (
-                                    <div key={index * 5} className="memberships-container__mobile__slide">
-                                        <MembershipCard key={index} subscription={subscription} />
+                                    <div key={index} className="memberships-container__mobile__slide">
+                                        <MembershipCard subscription={subscription} />
                                     </div>
                                 )
                             }
