@@ -8,7 +8,7 @@ import { FaAngleDown } from 'react-icons/fa'
 // import logo from '../../assets/logo-s.png';
 import logo from '../../assets/logo-xsofit.png';
 import logoMobile from '../../assets/logo-xsofit-mobile.png';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 interface NavigationProps {
     items: Item[];

@@ -2,7 +2,7 @@ import { Button } from '../button/button.component'
 import './about-me-card.styles.scss'
 import buttonArrow from '../../assets/buttonArrow.svg'
 import { InfoCard } from '../info-card/info-card.component'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 import { infoCards } from '../../application-data/about-me-data'
 
 

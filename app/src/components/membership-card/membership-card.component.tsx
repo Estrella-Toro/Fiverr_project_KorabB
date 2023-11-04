@@ -2,7 +2,7 @@ import { Button } from '../button/button.component'
 import './membership-card.styles.scss'
 import check from '../../assets/check.svg';
 
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 type Props = {
     subscription: {

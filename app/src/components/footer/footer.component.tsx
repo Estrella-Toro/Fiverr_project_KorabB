@@ -9,7 +9,7 @@ import instagramIcon from '../../assets/icon-instageam.png'
 import mailIcon from '../../assets/icon-mail.png'
 
 import { TestimonialCard } from '../testimonial-card/testimonial-card.component';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 import { ContactForm } from '../../components/contact-form/contact-form.component'
 import { testimonials } from '../../application-data/testimonials-data'
 
@@ -56,9 +56,9 @@ export const Footer = () => {
                 <div className="footer__contact-separator"></div>
                 <div className="footer__contact-details">
                     <div className='footer__contact-details__span'>
-                        <a href="https://www.instagram.com/sohil.elyas/">
+                        <a href="https://www.instagram.com/ecsofit/">
                             <img src={instagramIcon} alt="instagram icon" />
-                            <span>sohil.elyas</span>
+                            <span>@ecsofit</span>
                         </a>
                     </div>
                     <div className='footer__contact-details__span'>

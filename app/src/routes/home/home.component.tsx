@@ -11,13 +11,13 @@ import { useState, useEffect } from 'react'
 import { firebaseConfig } from '../../application-data/firebase-config';
 import { initializeApp } from 'firebase/app';
 import { getStorage, getDownloadURL, ref } from 'firebase/storage';
-
+//@ts-ignore
 const app = initializeApp(firebaseConfig);
 const storage = getStorage();
-const imageRefHero = ref(storage, '/images/HomepageFinalEditSM.png');
+const imageRefHero = ref(storage, '/images/HomepageFinalEditSM.webp');
 const imageRefCircles = ref(storage, '/images/MiddleBalls.svg');
 const imageRefBalls = ref(storage, '/images/Balls.png');
-const imageRefAboutMe = ref(storage, '/images/AboutMFinalEditSM.png');
+const imageRefAboutMe = ref(storage, '/images/AboutMFinalEditSM.webp');
 
 const Home = () => {
 

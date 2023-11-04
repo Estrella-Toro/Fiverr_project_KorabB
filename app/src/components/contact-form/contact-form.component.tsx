@@ -32,7 +32,7 @@ const fieldsRegex: FieldsRegex = {
 
 
 export const ContactForm = () => {
-
+    //@ts-ignore
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
 
@@ -84,6 +84,7 @@ export const ContactForm = () => {
         const time_stamp = created.getTime();
         const emailRef = collection(db, 'Contact_messages');
         await addDoc(emailRef, { ...formValues, created, time_stamp }).then(onSnapshot(emailRef, snapshot => {
+            //@ts-ignore
             const emails = snapshot.docs.map(email => email.data());
         }))
         alert('Thank you for the contact! Message received. I will contact you back as soon as possible')

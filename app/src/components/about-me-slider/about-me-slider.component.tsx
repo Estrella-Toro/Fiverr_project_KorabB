@@ -31,7 +31,7 @@ export const AboutMeSlider = ({ slides }: Props) => {
                         <div key={index}>
                             <h1 className="about-me-slider__title"> {slide.title}</h1>
                             <div className="about-me-slider__separator">
-                                {[...Array(dashNumber)].map((e, innerIndex) => {
+                                {[...Array(dashNumber)].map((innerIndex) => {
                                     const isRed = index === innerIndex;
                                     const separatorStyle = {
                                         backgroundColor: isRed ? '#f14141' : '#6C6C6C',

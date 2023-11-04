@@ -17,7 +17,8 @@ export type SlickArrowProps = {
 
 export default function SlickNextArrow(props: SlickArrowProps) {
 
-    const { className, style, onClick } = props;
+    // const { className, style, onClick } = props;
+    const { onClick } = props;
     return (
         <div
             className={'slick-next'}

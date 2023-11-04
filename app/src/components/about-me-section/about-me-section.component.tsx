@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 // import heroRight from '../../assets/HeroRight.png'
 // import heroRightMobile from '../../assets/HeroRightmobile.png'
 // import heroRight from '../../assets/AboutMFinalEditSM.png'
-import heroRightMobile from '../../assets/AboutMFinalEditSM.png'
+// import heroRightMobile from '../../assets/AboutMFinalEditSM.png'
 import { AboutMeSlider } from '../about-me-slider/about-me-slider.component';
 import { infoCards } from '../../application-data/about-me-data';
 
